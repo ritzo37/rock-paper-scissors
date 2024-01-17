@@ -44,3 +44,41 @@ function calcResult(userChoice,computerChoice) {
       }
     }
 }
+function game() {
+    let userWinCnt = 0 ; 
+    let computerWinCnt = 0 ;
+    while (userWinCnt!=5 && computerWinCnt!=5) {
+    let userChoice = getUserChoice() ; 
+    userChoice = userChoice.toUpperCase() ; // to handle cases sensitiveness
+    while (userChoice!="ROCK" && userChoice!="PAPER" && userChoice!="SCISSOR") { // invalid Choice
+        alert("Please Enter a Valid Input from rock,paper,scissor!") ; 
+        userChoice = getUserChoice().toUpperCase() ;
+    }
+    console.log("Your Choice : " + userChoice)
+
+    let computerChoice = getComputerChoice().toUpperCase() ;
+    console.log("Computer's Choice : " + computerChoice) ; 
+
+    let result = calcResult(userChoice,computerChoice) ; 
+    if (result=="WIN") {
+      alert("Congrats! You win!") ; 
+        userWinCnt++ ;
+    }
+    else if (result=="LOSS") {
+      alert("You lost :(") ; 
+        computerWinCnt++ ;
+    }
+    else {
+      alert("It's a draw!!") ;
+    }
+    console.log("Score : " + userWinCnt + " | " + computerWinCnt) ; 
+   }
+   alert("Game Over");
+   if (userWinCnt==5) {
+    console.log("You won the game yay!!") ;
+   }
+   else {
+    console.log("You lost the game :( ") ; 
+   }
+}
+game() ;
