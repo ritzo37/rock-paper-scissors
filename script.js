@@ -40,33 +40,17 @@ function calcResult(userChoice, computerChoice) {
         }
     }
 }
-function game(userChoice) {
+function game(event) {
+    let userChoice;
+    userChoice = event.target.id;
     userChoice = userChoice.toUpperCase();
     let computerChoice = getComputerChoice().toUpperCase();
-
     let result = calcResult(userChoice, computerChoice);
 
     const span = document.querySelector('.result');
     span.textContent = result;
-    return result;
-}
-
-let userWinCnt = 0;
-let cmpWinCnt = 0;
-const input = document.querySelector('.choices');
-let userChoice;
-input.addEventListener('click', (event)=> {
-    if (userWinCnt==5 || cmpWinCnt==5) {
-        console.log("Game Over");
-    }
-    else {
-        getvalue(event) ;
-    }
-});
-function getvalue(event) {
-    userChoice = event.target.classList.value;
-    let result = game(userChoice);
     result = result.toUpperCase();
+    
     if (result == 'WIN') {
         userWinCnt++;
     }
@@ -80,3 +64,34 @@ function getvalue(event) {
     playerScore.textContent = userWinCnt;
     computerScore.textContent = cmpWinCnt;
 }
+
+let userWinCnt = 0;
+let cmpWinCnt = 0;
+
+const rock = document.querySelector('#Rock');
+const paper = document.querySelector('#Paper') ;
+const scissor = document.querySelector('#Scissors');
+const choiceBlock = document.querySelector('.choices');
+
+const arr= [];
+arr.push(rock,paper,scissor);
+arr.forEach(function(item) {
+
+    item.addEventListener('click', (event)=> {
+    event.target.classList.add('effect');
+    event.target.addEventListener('transitionend',()=>{
+        event.target.classList.remove('effect');
+    })
+    if (userWinCnt==5 || cmpWinCnt==5) {
+        choiceBlock.textContent = "Game Over Refresh the page to start again :)";
+    }
+    else {
+        game(event) ;
+        console.log(userWinCnt);
+        if (userWinCnt==5 || cmpWinCnt==5) {
+
+            choiceBlock.textContent = "Game Over Refresh the page to start again :)";
+        }
+    }
+});
+});
