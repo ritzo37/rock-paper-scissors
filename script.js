@@ -48,14 +48,17 @@ function game(event) {
     let result = calcResult(userChoice, computerChoice);
 
     const span = document.querySelector('.result');
-    span.textContent = result;
-    result = result.toUpperCase();
-    
+ 
     if (result == 'WIN') {
+        span.textContent = `You won !! The computer chose ${computerChoice}` ;
         userWinCnt++;
     }
     else if (result == "LOSS") {
+        span.textContent = `You lost :( The computer chose ${computerChoice}` ;
         cmpWinCnt++;
+    }
+    else {
+        span.textContent = "The result was draw !"
     }
 
     const playerScore = document.querySelector(".plyrscore");
