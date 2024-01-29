@@ -1,0 +1,48 @@
+body {
+    margin: 0px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #FBEAEB;
+    min-height: 100vh;
+}
+.header{
+    padding : 50px ;
+    display: flex;
+    font-size: 32px;
+    background-color:  #2F3C7E;
+    justify-content: center;
+    color:  white;
+}
+
+.scores {
+    display: flex;
+    justify-content: space-between;
+    padding : 30px ;
+}
+.choices {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap : 50px ;
+    flex-wrap: wrap;
+}
+p {
+    font-size: 120px;
+    transition: all 1s ease;
+    border: 2px solid;
+    border-radius: 8%;
+    background-color: white;
+}
+.effect {
+    border : 2px solid hotpink ;
+    transform: scale(1.1);
+}
+.footer {
+    display: flex;
+    color: whitesmoke;
+    padding: 50px; 
+    justify-content: center; 
+    background-color: #2F3C7E;
+    margin-top: auto;
+} 
