@@ -73,7 +73,7 @@ let cmpWinCnt = 0;
 
 const rock = document.querySelector('#Rock');
 const paper = document.querySelector('#Paper') ;
-const scissor = document.querySelector('#Scissors');
+const scissor = document.querySelector('#Scissor');
 const choiceBlock = document.querySelector('.choices');
 
 const arr= [];
