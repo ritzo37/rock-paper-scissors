@@ -58,7 +58,7 @@ function game(event) {
         cmpWinCnt++;
     }
     else {
-        span.textContent = "The result was draw !"
+        span.textContent = `The result was draw The computer chose ${computerChoice}` ; 
     }
 
     const playerScore = document.querySelector(".plyrscore");
@@ -86,15 +86,27 @@ arr.forEach(function(item) {
         event.target.classList.remove('effect');
     })
     if (userWinCnt==5 || cmpWinCnt==5) {
-        choiceBlock.textContent = "Game Over Refresh the page to start again :)";
+        if (userWinCnt==5 && cmpWinCnt==5) {
+            choiceBlock.textContent = "The game ended in a draw ! Refresh the page to start again :)"
+        }
+        if (userWinCnt==5) {
+            choiceBlock.textContent = "You won the game ! Refresh the page to start again :)"
+         }
+         else {
+            choiceBlock.textContent = "You lost the game :( Refresh the page to start again :)"
+         }
     }
     else {
         game(event) ;
-        console.log(userWinCnt);
-        if (userWinCnt==5 || cmpWinCnt==5) {
-
-            choiceBlock.textContent = "Game Over Refresh the page to start again :)";
+        if (userWinCnt==5 && cmpWinCnt==5) {
+            choiceBlock.textContent = "The game ended in a draw ! Refresh the page to start again :)"
         }
+        if (userWinCnt==5) {
+            choiceBlock.textContent = "You won the game ! Refresh the page to start again :)"
+         }
+         else if (cmpWinCnt==5) {
+            choiceBlock.textContent = "You lost the game :( Refresh the page to start again :)"
+         }
     }
 });
 });
